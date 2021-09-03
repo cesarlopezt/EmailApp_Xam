@@ -1,4 +1,5 @@
-﻿using EmailApp.ViewModels;
+﻿using EmailApp.Models;
+using EmailApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,12 @@ using Xamarin.Forms.Xaml;
 namespace EmailApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EmailListPage : ContentPage
+    public partial class EmailDetailPage : ContentPage
     {
-        public EmailListPage()
+        public EmailDetailPage(Email email)
         {
             InitializeComponent();
-            BindingContext = new EmailListViewModel();
+            BindingContext = new EmailDetailViewModel(email);
         }
     }
 }

@@ -13,7 +13,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <AbsoluteLayout>
-            <CollectionView ItemsSource="{Binding Emails}" EmptyView="No emails yet.">
+            <CollectionView ItemsSource="{Binding Emails}" SelectedItem="{Binding SelectedEmail}" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <SwipeView>
