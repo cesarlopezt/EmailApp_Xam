@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmailApp.Views.EmailListPage"
+             xmlns:viewmodels="clr-namespace:EmailApp.ViewModels"
+             x:Name="emailList">
+    <ContentPage.BindingContext>
+        <viewmodels:EmailListViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddEmailCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <CollectionView ItemsSource="{Binding Emails}" BackgroundColor="White">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem BackgroundColor="Red" 
+                                               Text="Delete" 
+                                               Command="{Binding Source={x:Reference emailList}, Path=BindingContext.DeleteCommand}" 
+                                               CommandParameter="{Binding}" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Grid ColumnDefinitions="50, *, 100" 
+                                  RowDefinitions="*,*" 
+                                  ColumnSpacing="20"
+                                  RowSpacing="0">
+                                <Image Grid.Column="0" 
+                                       Grid.RowSpan="2" 
+                                       Source="avatar" 
+                                       VerticalOptions="Center" 
+                                       Margin="0,10,0,10" />
+                                <Label Text="{Binding From}" 
+                                       TextColor="Black" 
+                                       FontSize="Medium" 
+                                       Grid.Column="1" 
+                                       Grid.Row="0" />
+                                <Label Text="{Binding Subject}" 
+                                       TextColor="Black" 
+                                       FontAttributes="Bold" 
+                                       Grid.Column="1" 
+                                       Grid.Row="1" />
+                                <Label Text="{Binding SentAt.DayOfWeek}"  
+                                       TextColor="Black" 
+                                       Grid.Column="2"
+                                       Grid.RowSpan="2"
+                                       HorizontalOptions="EndAndExpand"
+                                       Margin="10,7"/>
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
