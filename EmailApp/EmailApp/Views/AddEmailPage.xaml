@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmailApp.Views.AddEmailPage"
+             xmlns:viewmodels="clr-namespace:EmailApp.ViewModels"
+             Title="Add Email"
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Send" Command="{Binding SendEmailCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="10,20">
+            <Label Text="From" />
+            <Entry Text="{Binding From}" Placeholder="From" />
+            <Label Text="To" />
+            <Entry Text="{Binding To}" Placeholder="To" />
+            <Label Text="Subject" />
+            <Entry Text="{Binding Subject}" Placeholder="Subject" />
+            <Label Text="Body" />
+            <Entry Text="{Binding Body}" Placeholder="Body" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

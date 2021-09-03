@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EmailApp.Views.EmailListPage"
              xmlns:viewmodels="clr-namespace:EmailApp.ViewModels"
-             x:Name="emailList">
+             x:Name="emailList"
+             Title="Email">
     <ContentPage.BindingContext>
         <viewmodels:EmailListViewModel/>
     </ContentPage.BindingContext>
@@ -12,7 +13,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <AbsoluteLayout>
-            <CollectionView ItemsSource="{Binding Emails}" BackgroundColor="White">
+            <CollectionView ItemsSource="{Binding Emails}" EmptyView="No emails yet.">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <SwipeView>

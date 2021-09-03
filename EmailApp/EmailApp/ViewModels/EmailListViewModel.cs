@@ -1,4 +1,5 @@
 ﻿using EmailApp.Models;
+using EmailApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,18 +10,15 @@ namespace EmailApp.ViewModels
 {
     class EmailListViewModel : BaseViewModel
     {
-        public ObservableCollection<Email> Emails { get; set; } = new ObservableCollection<Email>()
-        {
-            new Email("Dani", "Cesar", "Secreto", "Te amo"),
-            new Email("Dani", "Cesar", "Secreto", "Te amo")
-        };
+        public ObservableCollection<Email> Emails { get; set; } = new ObservableCollection<Email>();
 
         public Command AddEmailCommand { get; }
         public Command DeleteCommand { get; }
+        public Command SelectCommand { get; }
 
-        void OnAddEmail()
+        async void OnWriteEmail()
         {
-            Emails.Add(new Email("Dani", "Cesar", "Secreto", "Te amo"));
+            await App.Current.MainPage.Navigation.PushAsync(new AddEmailPage(Emails));
         }
 
         void OnDelete(Email email)
@@ -30,7 +28,7 @@ namespace EmailApp.ViewModels
 
         public EmailListViewModel()
         {
-            AddEmailCommand = new Command(OnAddEmail);
+            AddEmailCommand = new Command(OnWriteEmail);
             DeleteCommand = new Command<Email>(OnDelete);
         }
     }
