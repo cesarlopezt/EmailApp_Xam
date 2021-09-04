@@ -6,18 +6,21 @@
              Title="Add Email"
              >
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Send" Command="{Binding SendEmailCommand}" />
+        <ToolbarItem IconImageSource="send" Command="{Binding SendEmailCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Padding="10,20">
+        <Grid Padding="10,20" BackgroundColor="White" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
             <Label Text="From" />
-            <Entry Text="{Binding From}" Placeholder="From" />
-            <Label Text="To" />
-            <Entry Text="{Binding To}" Placeholder="To" />
-            <Label Text="Subject" />
-            <Entry Text="{Binding Subject}" Placeholder="Subject" />
-            <Label Text="Body" />
-            <Entry Text="{Binding Body}" Placeholder="Body" />
-        </StackLayout>
+            <Entry Text="{Binding From}" Placeholder="From" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" />
+
+            <Label Text="To" Grid.Column="0" Grid.Row="1" />
+            <Entry Text="{Binding To}" Placeholder="To" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" />
+
+            <Label Text="Subject" Grid.Column="0" Grid.Row="2"  />
+            <Entry Text="{Binding Subject}" Placeholder="Subject" Grid.Row="3" Grid.ColumnSpan="4"  />
+
+            <Label Text="Body" Grid.Column="0" Grid.Row="4" />
+            <Editor Text="{Binding Body}" Placeholder="Body" Grid.Row="5" Grid.ColumnSpan="4" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

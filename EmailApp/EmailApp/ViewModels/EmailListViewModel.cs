@@ -38,7 +38,6 @@ namespace EmailApp.ViewModels
 
         async void OnOpenEmail(Email email)
         {
-            await App.Current.MainPage.DisplayAlert("HELLO", email.Subject, "ok");
             await App.Current.MainPage.Navigation.PushAsync(new EmailDetailPage(email));
         }
 

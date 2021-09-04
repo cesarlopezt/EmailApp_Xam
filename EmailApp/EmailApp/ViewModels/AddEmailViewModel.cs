@@ -19,8 +19,14 @@ namespace EmailApp.ViewModels
         {
             SendEmailCommand = new Command(async () =>
             {
-                emails.Add(new Email(To, From, Subject, Body));
-                await App.Current.MainPage.Navigation.PopAsync();
+                if (string.IsNullOrEmpty(To) || string.IsNullOrEmpty(From))
+                {
+                    await App.Current.MainPage.DisplayAlert("Warning", "Email needs a Sender and a Recipient.", "ok");
+                } else
+                {
+                    emails.Add(new Email(To, From, Subject, Body));
+                    await App.Current.MainPage.Navigation.PopAsync();
+                }
             });
 
         }

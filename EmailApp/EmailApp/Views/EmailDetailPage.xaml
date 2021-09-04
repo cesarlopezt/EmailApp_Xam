@@ -2,10 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EmailApp.Views.EmailDetailPage"
-             Title="Email Detail">
+             Title="{Binding Subject}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Subject}"/>
+            <Frame>
+                <Label FontSize="Large" Text="{Binding Subject}"/>
+            </Frame>
+            <Frame>
+                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="50,Auto" RowSpacing="0">
+                    <Image Source="avatar" Grid.Column="0" Grid.RowSpan="3" Margin="0,0,10,0" />
+                    <Label Text="{Binding From}" TextColor="Gray" FontAttributes="Bold" Grid.Column="1" Grid.Row="0"  />
+                    <Label Text="{Binding To}" TextColor="Gray" FontSize="Small" Grid.Column="1" Grid.Row="1" />
+                    <Label Text="{Binding SentAt}" TextColor="Gray" Grid.Column="1" Grid.Row="2" />
+                </Grid>
+            </Frame>
+            <Label Margin="20" Text="{Binding Body}" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

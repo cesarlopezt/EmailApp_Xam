@@ -20,5 +20,11 @@
             <Setter Property="TextColor" Value="Black"/>
         </Style>
 
+        <Style TargetType="Editor">
+            <Setter Property="PlaceholderColor" Value="Gray"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+
+
     </Application.Resources>
 </Application>

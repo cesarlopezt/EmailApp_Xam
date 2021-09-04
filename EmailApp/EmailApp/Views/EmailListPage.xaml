@@ -9,7 +9,7 @@
         <viewmodels:EmailListViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddEmailCommand}" />
+        <ToolbarItem Text="Add" IconImageSource="edit" Command="{Binding AddEmailCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <AbsoluteLayout>
@@ -19,8 +19,8 @@
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems>
-                                    <SwipeItem BackgroundColor="Red" 
-                                               Text="Delete" 
+                                    <SwipeItem BackgroundColor="Red"
+                                               IconImageSource="delete"
                                                Command="{Binding Source={x:Reference emailList}, Path=BindingContext.DeleteCommand}" 
                                                CommandParameter="{Binding}" />
                                 </SwipeItems>
@@ -28,15 +28,15 @@
                             <Grid ColumnDefinitions="50, *, 100" 
                                   RowDefinitions="*,*" 
                                   ColumnSpacing="20"
-                                  RowSpacing="0">
+                                  RowSpacing="0"
+                                  Margin="0,0,0,15">
                                 <Image Grid.Column="0" 
                                        Grid.RowSpan="2" 
                                        Source="avatar" 
                                        VerticalOptions="Center" 
                                        Margin="0,10,0,10" />
                                 <Label Text="{Binding From}" 
-                                       TextColor="Black" 
-                                       FontSize="Medium" 
+                                       TextColor="Black"  
                                        Grid.Column="1" 
                                        Grid.Row="0" />
                                 <Label Text="{Binding Subject}" 
